@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
 # Worker image: the agent CLI, its dependencies, and its logic, all resolved at
 # build time. Nothing is installed at run time, because these containers have no
 # route to a package registry. A fully build-time image also gives you

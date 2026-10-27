@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+#
 # Worker: processes ONE work item per container invocation.
 #
 # The whole wrapper is this script. It fetches the item from S3 to a local path,
