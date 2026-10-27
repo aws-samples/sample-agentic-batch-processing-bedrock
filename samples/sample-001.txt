@@ -1,0 +1,39 @@
+QUARTERLY INFRASTRUCTURE REVIEW
+AnyCompany Logistics — Platform Engineering
+Period ending 2025-09-30
+
+SUMMARY
+
+Batch throughput for the parcel-routing workload increased 34 percent over the
+quarter, from 41,000 to 55,000 parcels processed per day. The increase came from
+the queue-partitioning change deployed on 2025-08-12, not from additional
+capacity; average compute spend fell 6 percent over the same period.
+
+FINDINGS
+
+1. Queue partitioning by destination region removed the head-of-line blocking
+   that had dominated wait times during the evening peak. Median queue wait fell
+   from 11 minutes to 90 seconds.
+
+2. Three of the eight worker pools remain over-provisioned. Pools 4, 6, and 7
+   ran below 30 percent utilization for the entire quarter. Alex Rivera
+   has been asked to model consolidation into two pools.
+
+3. The retry storm on 2025-09-04 was traced to an unbounded retry loop in the
+   address-normalization service. A retry cap shipped on 2025-09-06. No
+   recurrence since.
+
+4. Observability coverage is incomplete. The routing service emits no per-parcel
+   timing data, so the 34 percent improvement was measured at the queue rather
+   than end to end. AnySoftware Monitoring, our monitoring vendor, has quoted
+   for instrumentation work.
+
+ACTIONS
+
+- Alex Rivera to deliver the pool-consolidation model by 2025-10-17.
+- Platform Engineering to decide on the AnySoftware Monitoring quote by
+  2025-10-24.
+- Add end-to-end parcel timing before the next review period.
+
+Distribution: Platform Engineering, Operations, Finance
+Prepared by: J. Doe, Principal Engineer

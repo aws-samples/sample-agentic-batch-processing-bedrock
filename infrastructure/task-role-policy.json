@@ -1,0 +1,53 @@
+{
+    "_comment": "Reference copy of the task role's permissions, for readers adapting the pattern outside the CDK. The CDK in stack.ts grants the equivalent access with grant* methods plus an inline Bedrock statement, so you do not need to attach this file when deploying with the CDK. Replace every <PLACEHOLDER> before use.",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BedrockInvoke",
+            "_comment": "The wildcard Region is deliberate. Cross-Region inference profiles can route a request to a Region other than the one called, so a Region-pinned ARN produces intermittent access-denied errors that are hard to diagnose because most requests still succeed. The two read actions let the CLI resolve an inference profile to its backing foundation model; without them it falls back to an alternate request shape that works but adds a round-trip.",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream",
+                "bedrock:ListInferenceProfiles",
+                "bedrock:GetInferenceProfile"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:*:*:inference-profile/*",
+                "arn:aws:bedrock:*:*:application-inference-profile/*",
+                "arn:aws:bedrock:*::foundation-model/*"
+            ]
+        },
+        {
+            "Sid": "S3ReadInput",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::<BUCKET-NAME>/input/*"
+        },
+        {
+            "Sid": "S3WriteOutput",
+            "Effect": "Allow",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::<BUCKET-NAME>/output/*"
+        },
+        {
+            "Sid": "LedgerAccess",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem"
+            ],
+            "Resource": "arn:aws:dynamodb:<REGION>:<ACCOUNT-ID>:table/<TABLE-NAME>"
+        },
+        {
+            "Sid": "CloudWatchLogs",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:<REGION>:<ACCOUNT-ID>:log-group:/aws/batch/*"
+        }
+    ]
+}

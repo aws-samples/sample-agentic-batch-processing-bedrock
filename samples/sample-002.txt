@@ -1,0 +1,34 @@
+From: Jordan Li, Procurement
+To: Sam Patel, Facilities
+Date: 2026-01-14
+Subject: Cold storage vendor decision — we need to move
+
+Sam,
+
+I am writing to escalate the cold storage contract because the current lease at
+the Anytown site expires on 2026-03-31 and we still have no signed replacement.
+
+Where things stand. We shortlisted two vendors in November. AnyCompany Cold
+Chain quoted 12 percent above our current rate but can take occupancy from
+2026-03-01, with the temperature monitoring and audit trail we need. AnyVendor
+Storage quoted 4 percent below current rate, but their earliest availability is
+2026-05-15 and their monitoring is manual, which our auditors flagged as
+insufficient last cycle.
+
+My recommendation is AnyCompany Cold Chain. The six-week gap that AnyVendor
+Storage would leave us is the deciding factor, not the price difference. We
+would need interim storage at spot rates during that gap, and the two quotes I
+obtained for interim capacity both exceed the entire annual difference between
+the vendors.
+
+I recognize this puts us over the budget line your team set in October. I would
+rather have that conversation now than in April with product sitting on a dock.
+
+What I need from you: confirmation by 2026-01-23 that Facilities will support
+the AnyCompany Cold Chain option, so I can start contract review with Legal. If
+you want to reopen the AnyVendor Storage option, I need to know this week,
+because their quote expires on 2026-01-31.
+
+Happy to walk through the interim-storage numbers if that would help.
+
+Jordan

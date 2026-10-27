@@ -1,0 +1,16 @@
+# CDK
+cdk.out/
+cdk.context.json
+*.js
+!jest.config.js
+*.d.ts
+node_modules/
+
+# Build
+dist/
+*.tsbuildinfo
+
+# Local
+.env
+.DS_Store
+*.log

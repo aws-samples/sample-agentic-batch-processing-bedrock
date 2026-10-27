@@ -1,0 +1,27 @@
+{
+  "name": "agentic-batch-processing-bedrock",
+  "version": "1.0.0",
+  "description": "Run an existing agent CLI at scale on AWS Batch with Amazon Bedrock",
+  "license": "MIT-0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "deploy": "cdk deploy",
+    "destroy": "cdk destroy"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.30",
+    "aws-cdk": "2.x",
+    "source-map-support": "0.5.21",
+    "ts-node": "10.9.2",
+    "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.x",
+    "constructs": "^10.5.0"
+  }
+}

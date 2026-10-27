@@ -1,0 +1,56 @@
+SPECIFICATION: ARCHIVE MANIFEST FORMAT
+Document ref: SPEC-AM-004
+Status: Draft for review
+Owner: Data Platform, AnyCompany Analytics
+
+1. PURPOSE
+
+This specification defines the manifest file that must accompany every archive
+bundle submitted to the long-term store. A bundle without a conforming manifest
+is rejected at ingest.
+
+2. FILE REQUIREMENTS
+
+2.1 The manifest must be named manifest.json and reside at the root of the bundle.
+
+2.2 The manifest must be UTF-8 encoded, with no byte order mark.
+
+2.3 The manifest must not exceed 1 MiB. A bundle requiring a larger manifest must
+    be split.
+
+3. REQUIRED FIELDS
+
+3.1 bundle_id — string, globally unique, 8 to 64 characters, restricted to
+    lowercase letters, digits, and hyphens.
+
+3.2 created_at — string, RFC 3339 timestamp with an explicit UTC offset.
+
+3.3 producer — object with string fields name and version, both required.
+
+3.4 entries — array of objects, at least one. Each entry requires:
+    path (string, relative, no parent traversal), size_bytes (integer, zero or
+    greater), and checksum (string, lowercase hex SHA-256).
+
+3.5 retention_class — one of standard, extended, or permanent.
+
+4. VALIDATION BEHAVIOR
+
+4.1 Ingest validates the manifest before reading any entry. A manifest failing
+    validation causes the whole bundle to be rejected; entries are never
+    partially ingested.
+
+4.2 A checksum mismatch on any entry rejects the whole bundle. Callers must
+    resubmit.
+
+4.3 Unknown top-level fields are preserved but ignored. Unknown fields inside an
+    entry cause rejection, because silently dropping per-entry metadata has
+    caused data loss in a prior version of this format.
+
+5. OPEN QUESTIONS
+
+5.1 Whether retention_class permanent requires a second approver is unresolved.
+    Morgan Chen is consulting Legal.
+
+5.2 Compression of the manifest itself is deferred to a future revision.
+
+Review deadline: 2026-02-27

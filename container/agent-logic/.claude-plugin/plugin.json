@@ -1,0 +1,6 @@
+{
+  "name": "document-analysis",
+  "version": "1.0.0",
+  "description": "Sample agent logic: extracts structured fields from a plain-text document. Replace this with your own agent's logic.",
+  "author": "AWS Samples"
+}
